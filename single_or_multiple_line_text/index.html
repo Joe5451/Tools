@@ -1,0 +1,22 @@
+<style>
+/* 單行隱藏 */
+.single_line {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+/* 多行隱藏 */
+.multiple_line {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
+}
+</style>
+
+<div class="single_line" title="show all content..." style="width:100px;margin-bottom:30px;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam, impedit debitis obcaecati quae numquam sequi sapiente nostrum aliquam ipsa beatae.</div>
+
+<div class="multiple_line" title="show all content..." style="width:100px;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Porro praesentium molestiae fugit in. Earum possimus quis quo minima fugit. Magnam!</div>
