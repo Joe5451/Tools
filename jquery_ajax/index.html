@@ -1,0 +1,25 @@
+<script src="jquery-1.12.3.min.js"></script>
+
+<script>
+    // 一般常用的 AJAX
+    $.ajax({
+        type: 'POST',
+        // dataType: 'json', // 回傳資料類型
+        url:'',
+        data: { 
+            item1: 'date1',
+         },
+        success: function(res)
+        {
+            if (res.status == 'success') {
+                // 回傳表示成功時執行
+            } else {
+                // 回傳表示失敗時執行
+            }
+        },
+        error: function(err)
+        {
+            console.log('AJAX 發生錯誤!', err);
+        }
+    });
+</script>
