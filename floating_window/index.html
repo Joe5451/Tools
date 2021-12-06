@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floating Window</title>
+    <script src="jquery-1.12.3.min.js"></script>
+    <style>
+        .multiple_checkboxs_container {
+            display: inline-block;
+            position: relative;
+        }
+
+        .show_floating_window_btn {
+            border: 0;
+            border-radius: 5px;
+            cursor: pointer;
+            background: cyan;
+        }
+
+        .floating_window {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            display: none;
+            z-index: 1;
+            padding: 10px;
+            background: #fff;
+            border: 1px solid #000;
+            padding: 10px;
+        }
+
+        .floating_windonw_title {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .float_window_inner_container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            width: calc(5*100px); /* 欄數 x 欄寬 */
+        }
+
+        .floating_window label {
+            width: 100px;
+            cursor: pointer;
+            margin-bottom: 7px;
+        }
+
+        .checkbox_label {
+            position: relative;
+            display: flex;
+        }
+
+        .checkbox_text {
+            width: 80px;
+            display: block;
+            /* 單行隱藏過長文字
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap; 
+            */
+        }
+
+        /* 單行隱藏內容由子浮動視窗顯示
+        .sub_float_window {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            box-shadow: 0 0 3px rgba(0,0,0,.5);
+            width: 100px;
+            display: none;
+            z-index: 2;
+            padding: 5px 10px;
+        }
+
+        .checkbox_label:hover .sub_float_window {
+            display: block;
+            background: #fff;
+        }
+        */
+        
+        @media (max-width: 767px) {
+            .float_window_inner_container {
+                width: calc(3*100px);
+            }
+
+            /*
+            .sub_float_window {
+                left: 15px;
+            }
+            */
+        }
+    </style>
+</head>
+<body>
+    <div style="margin-bottom:30px;">
+        <span>選取項目：</span>
+        <span style="color:blue;" id="checked_content"></span>
+    </div>
+
+    <div class="multiple_checkboxs_container">
+        <button class="show_floating_window_btn" type="button">請選擇</button>
+        <div class="floating_window">
+            <div class="floating_windonw_title">Section 1</div>
+            <div class="float_window_inner_container">
+                <label class="checkbox_label">
+                    <input type="checkbox" name="key[]" class="floating_window_checkbox" value="value1">
+                    <span class="checkbox_text">sometext sometext sometext sometext sometext</span>
+                    <!-- <div class="sub_float_window">checkbox_text 單行隱藏過多文字，由此顯示</div> -->
+                </label>
+                <label class="checkbox_label">
+                    <input type="checkbox" name="key[]" class="floating_window_checkbox" value="value2">
+                    <span class="checkbox_text">some text</span>
+                    <!-- <div class="sub_float_window">some text</div> -->
+                </label>
+                <label class="checkbox_label">
+                    <input type="checkbox" name="key[]" class="floating_window_checkbox" value="value3">
+                    <span class="checkbox_text">some text</span>
+                </label>
+                <label class="checkbox_label">
+                    <input type="checkbox" name="key[]" class="floating_window_checkbox" value="value4">
+                    <span class="checkbox_text">some text</span>
+                </label>
+                <label class="checkbox_label">
+                    <input type="checkbox" name="key[]" class="floating_window_checkbox" value="value5">
+                    <span class="checkbox_text">some text</span>
+                </label>
+                <label class="checkbox_label">
+                    <input type="checkbox" name="key[]" class="floating_window_checkbox" value="value6">
+                    <span class="checkbox_text">some text</span>
+                </label>
+                <label class="checkbox_label">
+                    <input type="checkbox" name="key[]" class="floating_window_checkbox" value="value7">
+                    <span class="checkbox_text">some text</span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $('.multiple_checkboxs_container').hover(function() {
+            $('.floating_window').stop().fadeIn();
+        }, function() {
+            $('.floating_window').stop().fadeOut();
+        });
+
+        $('.floating_window_checkbox').change(function () {
+            var selected_text = '';
+
+            $(this).parents('.floating_window').find('.floating_window_checkbox:checked').each(function() {
+                selected_text += $(this).next().text() + '、';
+            });
+
+            selected_text = selected_text.replace(/、$/, ''); // 去除最後頓號
+
+            $('#checked_content').text(selected_text);
+        });
+    </script>
+</body>
+</html>
