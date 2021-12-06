@@ -1,0 +1,66 @@
+<style>
+/* 垂直 */
+.custom_scrollbar::-webkit-scrollbar {
+    width: 5px;
+}
+
+.custom_scrollbar::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+ 
+.custom_scrollbar::-webkit-scrollbar-thumb {
+	background: #888; 
+}
+
+.custom_scrollbar::-webkit-scrollbar-thumb:hover {
+	background: #555; 
+}
+
+.demo {
+    width: 200px;
+    height: 200px;
+    overflow-y: auto;
+    margin-bottom: 30px;
+}
+</style>
+
+<div class="custom_scrollbar demo">
+    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis temporibus placeat, eaque molestias voluptas, atque adipisci dignissimos ratione architecto distinctio ducimus doloribus qui? Vel, nam iure, sapiente sint necessitatibus, esse est dolor laboriosam magnam earum deserunt corporis! Iusto qui voluptatum exercitationem aspernatur incidunt eum, a repellat. Inventore id magni doloremque?
+</div>
+
+
+
+<style>
+/* 水平 */
+.custom_horizontal_scrollbar::-webkit-scrollbar {
+    height: 5px; /* 水平設定 height */
+}
+
+.custom_horizontal_scrollbar::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+ 
+.custom_horizontal_scrollbar::-webkit-scrollbar-thumb {
+	background: #888; 
+}
+
+.custom_horizontal_scrollbar::-webkit-scrollbar-thumb:hover {
+	background: #555; 
+}
+
+.demo2 {
+    width: 200px;
+    height: 100px;
+    overflow-x: auto;
+}
+
+.demo2_content {
+    width: 600px;
+}
+</style>
+
+<div class="custom_horizontal_scrollbar demo2">
+    <div class="demo2_content">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Facilis temporibus placeat, eaque molestias voluptas, atque adipisci dignissimos ratione architecto distinctio ducimus doloribus qui? Vel, nam iure, sapiente sint necessitatibus, esse est dolor laboriosam magnam earum deserunt corporis! Iusto qui voluptatum exercitationem aspernatur incidunt eum, a repellat. Inventore id magni doloremque?
+    </div>
+</div>
